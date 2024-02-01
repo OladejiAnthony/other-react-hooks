@@ -1,0 +1,42 @@
+
+//We use useReducer() hook to manage complex states logics to manage.
+//Its a replacement for useState() Hook 
+//Instead of having many functions(event handlers) attached to your state, controlling 
+//state updates, we will only have one functions encapsulating all other functions
+//to control state updates.
+//Note, the useReducer() hook initialState has two parts: a, reducer function b, an object(initialState),
+//which is unlike useState() hook. However, when it has just one parameter, it will be the "object(initialState)" alone.
+//syntax - 
+         const [] = useReducer({initialStateObject});
+         *E.g - const [] = useReducer({count: 0}); 
+
+            ---Two Parameters---
+         syntax- const [state, dispatch] = useReducer(reducer, initialState);
+                The "state" parameter refers to our initialState object "count".
+                The "dispatch" parameter is used to reference whatever changes made to our initialState object.
+                The "dispatch" parameter is used to dispatch action(events) into our reducer function.
+                The dispatch function takes in two paroperties: a, the "type" and "payload".
+                The "type" property describes the type of action we are dispatching.
+                The "payload" property describes the info/data you want to send about your dispatched action to your reducer function.
+
+         *E.g - Expanded
+            a. const [state, dispatch] = useReducer(countReducer, {count: 0});
+                    OR
+            b. initialState = {
+                    count: 0
+                }
+                const countReducer = (state, action) => {
+                    if(action.type === "action") {
+                        return {
+                            count: state.count - 1
+                        }
+                    }
+                    return state;
+                }
+                //The reducer function takes in 2 parameter's also: a. the initialState b. action dispatched.
+                //We declare conditionals inside our reducer function, which returns an object{} where we calculate the current state and next state, then
+                //The reducer function returns the "initialState".
+                //
+
+                const [state, dispatch] = useReducer(countReducer, initialState);
+
