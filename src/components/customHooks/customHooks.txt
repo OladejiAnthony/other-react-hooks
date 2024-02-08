@@ -1,0 +1,9 @@
+#Here we will create a hook function (useFetch) that will help us fetch data from an External API.
+
+#The name of your Hook should describe what it does.
+
+#In customHooks, inside  the return statement is where  you the states you want the recieving componets to use. 
+
+#The logic of your Data Fetching is what will be placed into this Custom Hook.
+
+
